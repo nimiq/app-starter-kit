@@ -12,19 +12,23 @@
 
         <StyleInfo />
 
+        <VueComponentsInfo />
+
         <WhatNextInfo />
     </div>
 </template>
 
 <script lang="ts">
 import '@nimiq/style/nimiq-style.min.css';
+import '@nimiq/vue-components/dist/NimiqVueComponents.css';
 
 import { Component, Vue } from 'vue-property-decorator';
 import ProjectInfo from './components/ProjectInfo.vue';
 import StyleInfo from './components/StyleInfo.vue';
+import VueComponentsInfo from './components/VueComponentsInfo.vue';
 import WhatNextInfo from './components/WhatNextInfo.vue';
 
-@Component({ components: { ProjectInfo, StyleInfo, WhatNextInfo } })
+@Component({ components: { ProjectInfo, StyleInfo, VueComponentsInfo, WhatNextInfo } })
 export default class App extends Vue {}
 </script>
 
