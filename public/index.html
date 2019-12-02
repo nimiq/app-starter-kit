@@ -1,17 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link href="blocking.css" rel="stylesheet">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title>nimiq-app-template</title>
-  </head>
-  <body>
-    <noscript>
-      <strong>We're sorry but nimiq-app-template doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app"></div>
+    <title>Nimiq App Template</title>
+</head>
+<body>
+    <header class="logo">
+        <span class="nq-icon nimiq-logo"></span>
+        <span class="logo-wordmark">Nimiq</span>
+        <span class="logo-subtitle">App Template</span>
+    </header>
+    <div id="app">
+        <noscript>
+            <div>
+                We're sorry, but this app doesn't work properly without JavaScript enabled. Please enable it to continue.
+            </div>
+        </noscript>
+    </div>
+    <footer>
+        <a href="https://www.nimiq.com/" target="_blank">Powered by Nimiq</a>
+    </footer>
     <!-- built files will be auto injected -->
-  </body>
+</body>
 </html>
