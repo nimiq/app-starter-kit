@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@nimiq/style": "^0.7.6",
+    "@nimiq/vue-components": "https://github.com/nimiq/vue-components.git#daniel/build/merged",
     "core-js": "^3.4.3",
     "vue": "^2.6.10",
     "vue-class-component": "^7.0.2",
