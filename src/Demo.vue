@@ -16,6 +16,7 @@
 
         <!-- Merge slot: nimiq-style -->
         <!-- Merge slot: nimiq-vue-components -->
+        <VueComponentsInfo />
         <!-- Merge slot: nimiq-hub -->
         <!-- Merge slot: nimiq-core -->
         <!-- Merge slot: nimiq-network -->
@@ -29,6 +30,7 @@
 <script lang="ts">
 // Merge slot: nimiq-style
 // Merge slot: nimiq-vue-components
+import '@nimiq/vue-components/dist/NimiqVueComponents.css';
 
 import { Component, Vue } from 'vue-property-decorator';
 import ProjectInfo from './demo-components/ProjectInfo.vue';
@@ -36,6 +38,7 @@ import WhatNextInfo from './demo-components/WhatNextInfo.vue';
 
 // Merge slot: nimiq-style
 // Merge slot: nimiq-vue-components
+import VueComponentsInfo from './demo-components/VueComponentsInfo.vue';
 // Merge slot: nimiq-hub
 // Merge slot: nimiq-core
 // Merge slot: nimiq-network
@@ -47,6 +50,7 @@ import WhatNextInfo from './demo-components/WhatNextInfo.vue';
     WhatNextInfo,
     // Merge slot: nimiq-style
     // Merge slot: nimiq-vue-components
+    VueComponentsInfo,
     // Merge slot: nimiq-hub
     // Merge slot: nimiq-core
     // Merge slot: nimiq-network

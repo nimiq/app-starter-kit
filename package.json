@@ -9,6 +9,7 @@
   },
   "dependencies": {
 
+    "@nimiq/vue-components": "https://github.com/nimiq/vue-components.git#build/master",
 
 
 
