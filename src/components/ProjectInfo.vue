@@ -1,0 +1,56 @@
+<template>
+    <div>
+        <h2>About the Project Setup</h2>
+        <p>
+            This project setup provides support for writing your UI components with
+            <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue</a>
+            and comes with
+            <a href="https://www.typescriptlang.org/" target="_blank" rel="noopener">Typescript</a>,
+            <a href="https://babeljs.io/" target="_blank" rel="noopener">Babel</a>,
+            <a href="https://sass-lang.com/" target="_blank" rel="noopener">SCSS/Sass</a>,
+            <a href="https://eslint.org/" target="_blank" rel="noopener">ESLint</a>
+            and
+            <a href="https://jestjs.io/" target="_blank" rel="noopener">Jest</a>
+            preinstalled.
+        </p>
+        <p>
+            To learn how to configure the setup, check out the
+            <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli</a>,
+            <a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-typescript"
+               target="_blank"
+               rel="noopener"
+            >@vue/cli-plugin-typescript</a>,
+            <a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel"
+               target="_blank"
+               rel="noopener"
+            >@vue/cli-plugin-babel</a>,
+            <a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint"
+               target="_blank"
+               rel="noopener"
+            >@vue/cli-plugin-eslint</a>
+            and
+            <a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-unit-jest"
+               target="_blank"
+               rel="noopener"
+            >@vue/cli-plugin-unit-jest</a>.
+        </p>
+        <p>
+            To checkout more interesting vue related stuff, see:
+            <a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a>,
+            <a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a>,
+            <a href="https://github.com/vuejs/vue-devtools#vue-devtools"
+               target="_blank"
+               rel="noopener"
+            >vue-devtools</a>,
+            <a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a>
+            and
+            <a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a>.
+        </p>
+    </div>
+</template>
+
+<script lang="ts">
+export default {
+    name: 'ProjectInfo',
+};
+</script>
