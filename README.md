@@ -55,6 +55,12 @@ Lint your code:
 yarn lint
 ```
 
+To automatically fix lint errors:
+
+```bash
+yarn lint --fix
+```
+
 Run your unit tests:
 
 ```bash
