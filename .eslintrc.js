@@ -68,5 +68,13 @@ module.exports = {
                 'import/no-extraneous-dependencies': 'off',
             },
         },
+        // Disable max-len rule for long lines of style in Demo.vue which can not be oppressed by a eslint-disable, see
+        // https://github.com/eslint/eslint/issues/11138
+        {
+            files: ['src/Demo.vue'],
+            rules: {
+                'max-len': 'off',
+            },
+        },
     ],
 };
