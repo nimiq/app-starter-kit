@@ -14,6 +14,8 @@
 
         <VueComponentsInfo />
 
+        <HubInfo />
+
         <WhatNextInfo />
     </div>
 </template>
@@ -27,8 +29,9 @@ import ProjectInfo from './components/ProjectInfo.vue';
 import StyleInfo from './components/StyleInfo.vue';
 import VueComponentsInfo from './components/VueComponentsInfo.vue';
 import WhatNextInfo from './components/WhatNextInfo.vue';
+import HubInfo from '@/components/HubInfo.vue';
 
-@Component({ components: { ProjectInfo, StyleInfo, VueComponentsInfo, WhatNextInfo } })
+@Component({ components: { HubInfo, ProjectInfo, StyleInfo, VueComponentsInfo, WhatNextInfo } })
 export default class App extends Vue {}
 </script>
 
