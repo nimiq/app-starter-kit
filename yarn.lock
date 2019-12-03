@@ -915,6 +915,18 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
+"@nimiq/hub-api@^1.2.0-beta.2":
+  version "1.2.0-beta.2"
+  resolved "https://registry.yarnpkg.com/@nimiq/hub-api/-/hub-api-1.2.0-beta.2.tgz#419b22f523f0fb0c4f56f7c0fe682ecebc42d54b"
+  integrity sha512-y+AzRG/X/JSUoyBkWZY/YAoNdE+ZJofusEnGRrXpVMbgJwHEayggOtiosVY3KjU66M/IdyxPHoArGoU95PzV5A==
+  dependencies:
+    "@nimiq/rpc" "^0.4.0"
+
+"@nimiq/rpc@^0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@nimiq/rpc/-/rpc-0.4.0.tgz#d15f95c39d21c513172aa75c8f43ae555067cb50"
+  integrity sha512-Zpv45kTnbhmr75xc8BK2o/K1gDBh3TcJwIuo95SWBoWmu4ntcKtHs744bfu6Lf49XGG8d+cFn2dPDDDIeoBfmw==
+
 "@nimiq/style@^0.7.6":
   version "0.7.6"
   resolved "https://registry.yarnpkg.com/@nimiq/style/-/style-0.7.6.tgz#b8a128d8fb6208554883158b8c2fa7f11d9e8333"
