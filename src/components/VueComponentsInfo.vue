@@ -48,6 +48,14 @@
                 If you do not want to use the Nimiq vue component library in your project, you can remove it by
                 reverting the <em>Setup @nimiq/vue-components</em> commit.
             </p>
+            <p class="nq-text">
+                One typical component in Nimiq Apps are Identicons that are a visual representation for an addresses:
+            </p>
+            <Identicon address="NQ07 0000 0000 0000 0000 0000 0000 0000 0000"/>
+            <p class="nq-text">
+                Identicons require an additional asset to be loaded. If you do not intend to use Identicons, you can
+                revert the <em>Setup Identicons</em> commit.
+            </p>
         </PageBody>
     </SmallPage>
 </template>
@@ -59,6 +67,7 @@ import {
     Carousel,
     CheckmarkIcon,
     HexagonIcon,
+    Identicon,
     InfoCircleIcon,
     LoginIcon,
     PageHeader,
@@ -73,6 +82,7 @@ import {
         Carousel,
         CheckmarkIcon,
         HexagonIcon,
+        Identicon,
         InfoCircleIcon,
         LoginIcon,
         PageHeader,
