@@ -1,32 +1,42 @@
 <template>
     <div id="app">
-        <h1>Hi!</h1>
-
-        <p>Congratulations, you just set up a fully functional, Nimiq powered app.</p>
-        <p>This app starter kit already contains everything you need to build an awesome app.</p>
+        <div id="introduction">
+            <h1 class="nq-h1">Hi!</h1>
+            <p class="nq-text">
+                Congratulations, you just set up a fully functional, Nimiq powered app.
+                This app starter kit already contains everything you need to build an awesome app.
+            </p>
+        </div>
 
         <ProjectInfo />
+
+        <StyleInfo />
 
         <WhatNextInfo />
     </div>
 </template>
 
 <script lang="ts">
+import '@nimiq/style/nimiq-style.min.css';
+
 import { Component, Vue } from 'vue-property-decorator';
 import ProjectInfo from './components/ProjectInfo.vue';
+import StyleInfo from './components/StyleInfo.vue';
 import WhatNextInfo from './components/WhatNextInfo.vue';
 
-@Component({ components: { ProjectInfo, WhatNextInfo } })
+@Component({ components: { ProjectInfo, StyleInfo, WhatNextInfo } })
 export default class App extends Vue {}
 </script>
 
 <style lang="scss">
-    #app {
-        font-family: Avenir, Helvetica, Arial, sans-serif;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        text-align: center;
-        color: #2c3e50;
-        margin-top: 60px;
-    }
+#introduction {
+    max-width: 75rem;
+    margin-bottom: 6rem;
+    text-align: center;
+}
+
+#app > * {
+    margin-left: auto;
+    margin-right: auto;
+}
 </style>
