@@ -1,16 +1,16 @@
 # Nimiq App-Template
 
-> Fork this repo to create a Nimiq-powered in seconds. It contains all the boilerplate code need to get you started.
+> Fork this repo to create a Nimiq-powered app in seconds. It contains all the boilerplate code needed to get you started.
 
-It includes frameworks and components Nimiq developers commonly use to create Nimiq-enabled web applications.
-New to Nimiq? Checkout [nimiq.com](https://nimiq.com).
+This app template includes frameworks and components that Nimiq developers commonly use to create Nimiq-enabled web applications.
+New to Nimiq? Check out [nimiq.com](https://nimiq.com).
 
 Features included:
 
 * [Vue.js framework](https://vuejs.org/)
-* Development server with hot code updates
+* Development server with hot module reloads
 * Linting and testing
-* App skeleton and with CSS
+* App skeleton with CSS
 * Demo code and example components
 * [Nimiq Style](https://github.com/nimiq/nimiq-style)
 * [Nimiq Vue components](https://github.com/nimiq/vue-components)
@@ -19,10 +19,10 @@ Features included:
 
 ## How to use it
 
-To create a new project from scratch, fork this repository on GitHub, rename it, and clone it:
+To create a new project from scratch, fork this repository on GitHub, rename it, and clone it to your filesystem:
 
 ```bash
-git clone <the path to your fork>
+git clone <the URL to your fork>
 ```
 
 Or do a [custom setup](#custom-setup)!
@@ -54,7 +54,7 @@ Run your unit tests:
 yarn test:unit
 ```
 
-Compile and minify the project to be ready for deploying in production:
+Compile and minify the project to be ready for deployment in production:
 
 ```bash
 yarn build
@@ -63,7 +63,7 @@ yarn build
 ## Custom setups
 
 Custom setups allow you to add features to an existing project,
-or hand-pick the features you need. For advanced users!
+or hand-pick the features you need. (For advanced users.)
 
 ### Super-charge an existing repo
 
@@ -77,17 +77,17 @@ git merge template/master
 
 Or...
 
-### Create a new repo locally (for nerds)
+### Create a new repo locally
 
 ```bash
-Mkdir my-app
-Cd my-app
-Git init
+mkdir my-app
+cd my-app
+git init
 ```
 
 ... continue with the commands from the  [previous step](#super-charge-an-existing-repo).
 
-### Handpick the features you like (for super nerds!)
+### Handpick the features you like
 
 To only add some of the features,
 checkout [this list](https://github.com/nimiq/app-template/commits/master).
@@ -101,7 +101,7 @@ git merge <commit ID>
 ```
 
 **Note:** Cherry-picking features might work in some cases
- but is not recommended as some features built upon others from before.
+but is not recommended as some features depend on previous ones.
 
 ### Customize the Vue.js configuration
 
