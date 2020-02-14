@@ -8,6 +8,7 @@ const coreBasePath = `https://cdn.nimiq.com/v${CORE_VERSION}/`;
 const coreVariant = 'web'; // change this to 'web-offline' to load the smaller core package without network capabilities
 
 let nimiqCorePromise: Promise<Nimiq> | null = null;
+let nimiqCryptographyPromise: Promise<void> | null = null;
 
 /**
  * Load the Nimiq core api from the cdn server. When using the core and its classes make sure to always load them via
@@ -50,6 +51,21 @@ export async function loadNimiqCore(): Promise<Nimiq> {
     return nimiqCorePromise;
 }
 
+/**
+ * Load the WebAssembly and module for cryptographic functions. You will have to do this before calculating hashes,
+ * deriving keys or addresses, signing transactions or messages, etc.
+ */
+export async function loadNimiqCryptography(): Promise<void> {
+    nimiqCryptographyPromise = nimiqCryptographyPromise || (async () => {
+        const Nimiq = await loadNimiqCore();
+        // Note that we don't need to cache a promise for doImport() as the core already does that.
+        await Nimiq.WasmHelper.doImport();
+        // After the wasm is loaded we can initialize the genesis config.
+        Nimiq.GenesisConfig.main();
+    })();
+    return nimiqCryptographyPromise;
+}
+
 function prefetch(asset: string) {
     const $link = document.createElement('link');
     $link.rel = 'prefetch';
@@ -62,9 +78,18 @@ function prefetchCore() {
     prefetch(`${coreBasePath}${coreVariant}.js`);
 }
 
+function prefetchCryptography() {
+    prefetch(`${coreBasePath}worker-wasm.js`);
+    prefetch(`${coreBasePath}worker-wasm.wasm`);
+}
+
 // If the browser completely finished loading the page, start prefetching core assets with low priority.
 if (document.readyState === 'complete') {
     prefetchCore();
+    prefetchCryptography();
 } else {
-    window.addEventListener('load', () => prefetchCore());
+    window.addEventListener('load', () => {
+        prefetchCore();
+        prefetchCryptography();
+    });
 }

@@ -30,6 +30,10 @@
     with higher priority and disable the lower priority prefetching in CoreLoader. Use 'web' or 'web-offline' according
     to coreVariant in CoreLoader.ts -->
     <!--<link rel="preload" as="script"
-        href="https://cdn.nimiq.com/v<%= htmlWebpackPlugin.options.CORE_VERSION %>/web.js">-->
+        href="https://cdn.nimiq.com/v<%= htmlWebpackPlugin.options.CORE_VERSION %>/web.js">
+    <link rel="preload" as="script"
+        href="https://cdn.nimiq.com/v<%= htmlWebpackPlugin.options.CORE_VERSION %>/worker-wasm.js">
+    <link rel="preload" as="fetch" crossorigin
+        href="https://cdn.nimiq.com/v<%= htmlWebpackPlugin.options.CORE_VERSION %>/worker-wasm.wasm">-->
 </body>
 </html>
