@@ -1,4 +1,5 @@
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const CORE_VERSION = require('@nimiq/core-web/package.json').version;
 
 const configureWebpack = {
     plugins: [
@@ -8,4 +9,17 @@ const configureWebpack = {
     ],
 };
 
-module.exports = { configureWebpack };
+const chainWebpack = (config) => {
+    // inject core version into HtmlWebpackPlugin for use in public/index.html
+    config
+        .plugin('html')
+        .tap((args) => {
+            args[0].CORE_VERSION = CORE_VERSION;
+            return args;
+        });
+};
+
+module.exports = {
+    configureWebpack,
+    chainWebpack,
+};

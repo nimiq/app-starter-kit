@@ -8,6 +8,7 @@
     "lint": "vue-cli-service lint --no-fix"
   },
   "dependencies": {
+    "@nimiq/core-web": "^1.5.4",
     "@nimiq/hub-api": "^1.2.0",
     "@nimiq/style": "^0.7.6",
     "@nimiq/vue-components": "https://github.com/nimiq/vue-components.git#build/master",
