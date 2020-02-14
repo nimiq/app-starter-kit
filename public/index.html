@@ -25,5 +25,11 @@
         <a href="https://www.nimiq.com/" target="_blank">Powered by Nimiq</a>
     </footer>
     <!-- built files will be auto injected -->
+
+    <!-- If you are sure that you will need the Nimiq core soon after page load you can enable these lines to preload it
+    with higher priority and disable the lower priority prefetching in CoreLoader. Use 'web' or 'web-offline' according
+    to coreVariant in CoreLoader.ts -->
+    <!--<link rel="preload" as="script"
+        href="https://cdn.nimiq.com/v<%= htmlWebpackPlugin.options.CORE_VERSION %>/web.js">-->
 </body>
 </html>

@@ -18,6 +18,7 @@
         <!-- Merge slot: nimiq-vue-components -->
         <!-- Merge slot: nimiq-hub -->
         <!-- Merge slot: nimiq-core -->
+        <CoreInfo />
         <!-- Merge slot: nimiq-network -->
         <!-- Merge slot: nimiq-browser-warning -->
         <!-- Merge slot: nimiq-utils -->
@@ -38,6 +39,7 @@ import WhatNextInfo from './demo-components/WhatNextInfo.vue';
 // Merge slot: nimiq-vue-components
 // Merge slot: nimiq-hub
 // Merge slot: nimiq-core
+import CoreInfo from './demo-components/CoreInfo.vue';
 // Merge slot: nimiq-network
 // Merge slot: nimiq-browser-warning
 // Merge slot: nimiq-utils
@@ -49,6 +51,7 @@ import WhatNextInfo from './demo-components/WhatNextInfo.vue';
     // Merge slot: nimiq-vue-components
     // Merge slot: nimiq-hub
     // Merge slot: nimiq-core
+    CoreInfo,
     // Merge slot: nimiq-network
     // Merge slot: nimiq-browser-warning
     // Merge slot: nimiq-utils
