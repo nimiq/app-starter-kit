@@ -8,6 +8,7 @@
     "lint": "vue-cli-service lint --no-fix"
   },
   "dependencies": {
+    "@nimiq/browser-warning": "^1.1.0",
     "@nimiq/core-web": "^1.5.4",
     "@nimiq/hub-api": "^1.2.0",
     "@nimiq/network-client": "^0.4.1",
