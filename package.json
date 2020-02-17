@@ -13,6 +13,7 @@
 
 
 
+    "@nimiq/browser-warning": "^1.1.0",
 
 
     "core-js": "^3.6.4",

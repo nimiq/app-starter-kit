@@ -7,6 +7,8 @@
     <link href="<%= BASE_URL %>blocking.css" rel="stylesheet">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title>Nimiq App Starter Kit</title>
+    <!-- Important: browser warning script needs to be included before all other scripts. -->
+    <script type="text/javascript" src="<%= BASE_URL %>browser-warning.js"></script>
 </head>
 <body>
     <header class="logo">
@@ -15,11 +17,9 @@
         <span class="logo-subtitle">App Starter Kit</span>
     </header>
     <div id="app">
-        <noscript>
-            <div>
-                We're sorry, but this app doesn't work properly without JavaScript enabled. Please enable it to continue.
-            </div>
-        </noscript>
+        <!-- Inject browser warnings. To hide content of your page in case a browser warning is displayed, you can add
+        the hide-on-browser-warning class to the elements to be hidden. -->
+        <%= htmlWebpackPlugin.options.BROWSER_WARNING %>
     </div>
     <footer>
         <a href="https://www.nimiq.com/" target="_blank">Powered by Nimiq</a>
