@@ -22,6 +22,8 @@
 
         <BrowserWarningInfo />
 
+        <UtilsInfo />
+
         <WhatNextInfo />
     </div>
 </template>
@@ -37,6 +39,7 @@ import HubInfo from './components/HubInfo.vue';
 import NetworkInfo from './components/NetworkInfo.vue';
 import ProjectInfo from './components/ProjectInfo.vue';
 import StyleInfo from './components/StyleInfo.vue';
+import UtilsInfo from './components/UtilsInfo.vue';
 import VueComponentsInfo from './components/VueComponentsInfo.vue';
 import WhatNextInfo from './components/WhatNextInfo.vue';
 
@@ -48,6 +51,7 @@ import WhatNextInfo from './components/WhatNextInfo.vue';
         NetworkInfo,
         ProjectInfo,
         StyleInfo,
+        UtilsInfo,
         VueComponentsInfo,
         WhatNextInfo,
     },
