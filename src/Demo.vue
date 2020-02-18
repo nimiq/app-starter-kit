@@ -21,6 +21,7 @@
         <!-- Merge slot: nimiq-network -->
         <!-- Merge slot: nimiq-browser-warning -->
         <!-- Merge slot: nimiq-utils -->
+        <UtilsInfo />
 
         <WhatNextInfo />
     </div>
@@ -41,6 +42,7 @@ import WhatNextInfo from './demo-components/WhatNextInfo.vue';
 // Merge slot: nimiq-network
 // Merge slot: nimiq-browser-warning
 // Merge slot: nimiq-utils
+import UtilsInfo from './demo-components/UtilsInfo.vue';
 
 @Component({ components: {
     ProjectInfo,
@@ -52,6 +54,7 @@ import WhatNextInfo from './demo-components/WhatNextInfo.vue';
     // Merge slot: nimiq-network
     // Merge slot: nimiq-browser-warning
     // Merge slot: nimiq-utils
+    UtilsInfo,
 } })
 export default class Demo extends Vue {}
 </script>
