@@ -42,4 +42,6 @@ module.exports = {
     configureWebpack,
     // Merge slot: chainWebpack
     chainWebpack,
+    indexPath: '../index.html', // Put the index in the root directory for gh-pages
+    publicPath: 'dist',
 };
