@@ -2,7 +2,8 @@
     <SmallPage>
         <PageHeader>Demo Wallet</PageHeader>
         <PageBody v-if="state === constructor.State.ADDRESS_SELECTION">
-            <!-- First, the user will be asked to select an address to send a transaction from -->
+            <p class="nq-text">Please choose the address you want to send a transaction from.</p>
+            <button class="nq-button" @click="chooseAddress">Choose address</button>
         </PageBody>
         <PageBody v-else-if="state === constructor.State.TRANSACTION_DETAILS">
             <!-- Then the user should specify the transaction details -->
@@ -22,6 +23,7 @@
 import { Component, Vue } from 'vue-property-decorator';
 import { PageBody, PageHeader, PageFooter, SmallPage } from '@nimiq/vue-components';
 import { NetworkClient } from '@nimiq/network-client';
+import HubClient from '@nimiq/hub-api';
 
 @Component({ components: { PageBody, PageHeader, PageFooter, SmallPage } })
 class DemoWallet extends Vue {
@@ -31,6 +33,11 @@ class DemoWallet extends Vue {
     private consensusState: string = 'connecting';
     private blockchainHeight: number = 0;
 
+    // Note that we're using the nimiq testnet in this demo. You can get testnet Nim for testing from our faucet:
+    // https://getsome.nimiq-testnet.com/
+    private hubClient: HubClient = new HubClient('https://hub.nimiq-testnet.com/');
+    private myAddress: string = '';
+
     private async created() {
         // Get the Network client singleton. If you need to configure the client, use NetworkClient.createInstance
         const networkClient = NetworkClient.Instance;
@@ -38,6 +45,11 @@ class DemoWallet extends Vue {
         networkClient.on(NetworkClient.Events.PEER_COUNT, (peerCount) => this.peerCount = peerCount);
         networkClient.on(NetworkClient.Events.CONSENSUS, (consensusState) => this.consensusState = consensusState);
         networkClient.on(NetworkClient.Events.HEAD_HEIGHT, (height) => this.blockchainHeight = height);
+    }
+
+    private async chooseAddress() {
+        ({ address: this.myAddress } = await this.hubClient.chooseAddress({ appName: 'Demo Wallet' }));
+        this.state = DemoWallet.State.TRANSACTION_DETAILS;
     }
 }
 
