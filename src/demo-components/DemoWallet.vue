@@ -6,7 +6,12 @@
             <button class="nq-button" @click="chooseAddress">Choose address</button>
         </PageBody>
         <PageBody v-else-if="state === constructor.State.TRANSACTION_DETAILS">
-            <!-- Then the user should specify the transaction details -->
+            <p class="nq-text">Transaction recipient:</p>
+            <AddressInput @address="recipientAddress = $event" />
+            <p class="nq-text">Transaction amount:</p>
+            <AmountInput v-model="amount" />
+
+            <button class="nq-button" :disabled="!recipientAddress || !amount" @click="sendTransaction">Send</button>
         </PageBody>
         <PageBody v-else-if="state === constructor.State.TRANSACTION_STATUS">
             <!-- Show status of sent transaction -->
@@ -21,11 +26,11 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import { PageBody, PageHeader, PageFooter, SmallPage } from '@nimiq/vue-components';
+import { AddressInput, AmountInput, PageBody, PageHeader, PageFooter, SmallPage } from '@nimiq/vue-components';
 import { NetworkClient } from '@nimiq/network-client';
 import HubClient from '@nimiq/hub-api';
 
-@Component({ components: { PageBody, PageHeader, PageFooter, SmallPage } })
+@Component({ components: { AddressInput, AmountInput, PageBody, PageHeader, PageFooter, SmallPage } })
 class DemoWallet extends Vue {
     private state: DemoWallet.State = DemoWallet.State.ADDRESS_SELECTION;
 
@@ -37,6 +42,9 @@ class DemoWallet extends Vue {
     // https://getsome.nimiq-testnet.com/
     private hubClient: HubClient = new HubClient('https://hub.nimiq-testnet.com/');
     private myAddress: string = '';
+
+    private recipientAddress: string = '';
+    private amount: number = 0;
 
     private async created() {
         // Get the Network client singleton. If you need to configure the client, use NetworkClient.createInstance
@@ -50,6 +58,10 @@ class DemoWallet extends Vue {
     private async chooseAddress() {
         ({ address: this.myAddress } = await this.hubClient.chooseAddress({ appName: 'Demo Wallet' }));
         this.state = DemoWallet.State.TRANSACTION_DETAILS;
+    }
+
+    private async sendTransaction() {
+        // send transaction to network
     }
 }
 
