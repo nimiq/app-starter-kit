@@ -8,6 +8,8 @@
             </p>
         </div>
 
+        <DemoWallet />
+
         <ProjectInfo />
 
         <!-- To reduce merge conflicts when merging the feature branches, we provide target slots here where the
@@ -40,6 +42,7 @@ import '@nimiq/style/nimiq-style.min.css';
 import '@nimiq/vue-components/dist/NimiqVueComponents.css';
 
 import { Component, Vue } from 'vue-property-decorator';
+import DemoWallet from './demo-components/DemoWallet.vue';
 import ProjectInfo from './demo-components/ProjectInfo.vue';
 import WhatNextInfo from './demo-components/WhatNextInfo.vue';
 
@@ -59,6 +62,7 @@ import BrowserWarningInfo from './demo-components/BrowserWarningInfo.vue';
 import UtilsInfo from './demo-components/UtilsInfo.vue';
 
 @Component({ components: {
+    DemoWallet,
     ProjectInfo,
     WhatNextInfo,
     // Merge slot: nimiq-style
