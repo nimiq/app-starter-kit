@@ -34,6 +34,7 @@ import HubClient from '@nimiq/hub-api';
 class DemoWallet extends Vue {
     private state: DemoWallet.State = DemoWallet.State.ADDRESS_SELECTION;
 
+    private networkReadyPromise!: Promise<void>;
     private peerCount: number = 0;
     private consensusState: string = 'connecting';
     private blockchainHeight: number = 0;
@@ -49,7 +50,8 @@ class DemoWallet extends Vue {
     private async created() {
         // Get the Network client singleton. If you need to configure the client, use NetworkClient.createInstance
         const networkClient = NetworkClient.Instance;
-        await networkClient.init();
+        this.networkReadyPromise = networkClient.init();
+        await this.networkReadyPromise;
         networkClient.on(NetworkClient.Events.PEER_COUNT, (peerCount) => this.peerCount = peerCount);
         networkClient.on(NetworkClient.Events.CONSENSUS, (consensusState) => this.consensusState = consensusState);
         networkClient.on(NetworkClient.Events.HEAD_HEIGHT, (height) => this.blockchainHeight = height);
@@ -61,7 +63,28 @@ class DemoWallet extends Vue {
     }
 
     private async sendTransaction() {
-        // send transaction to network
+        await this.networkReadyPromise;
+        const networkClient = NetworkClient.Instance;
+
+        if (this.consensusState !== 'established') {
+            await new Promise((resolve) => {
+                const consensusListener = () => {
+                    networkClient.off(NetworkClient.Events.CONSENSUS_ESTABLISHED, consensusListener);
+                    resolve();
+                };
+                networkClient.on(NetworkClient.Events.CONSENSUS_ESTABLISHED, consensusListener);
+            });
+        }
+
+        const { serializedTx } = await this.hubClient.signTransaction({
+            appName: 'Demo Wallet',
+            sender: this.myAddress,
+            recipient: this.recipientAddress,
+            value: this.amount,
+            validityStartHeight: this.blockchainHeight,
+        });
+        networkClient.sendTransaction(serializedTx);
+        this.state = DemoWallet.State.TRANSACTION_STATUS;
     }
 }
 
