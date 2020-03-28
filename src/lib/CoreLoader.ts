@@ -5,7 +5,6 @@ import { version as CORE_VERSION } from '@nimiq/core-web/package.json';
 type Nimiq = typeof import('@nimiq/core-web');
 
 const coreBasePath = `https://cdn.nimiq.com/v${CORE_VERSION}/`;
-// const coreBasePath = 'https://cdn.nimiq.com/v1.5.1/';
 const coreVariant = 'web'; // change this to 'web-offline' to load the smaller core package without network capabilities
 
 let nimiqCorePromise: Promise<Nimiq> | null = null;
