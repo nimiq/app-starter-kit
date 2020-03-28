@@ -25,6 +25,18 @@ Then merge it into your code base:
 git merge --allow-unrelated-histories starter-kit/master
 ```
 
+And finally setup everything and get all dependencies with yarn:
+
+```bash
+yarn
+```
+
+or if you prefer NPM:
+
+```bash
+npm install
+```
+
 ### Advanced Setup
 
 Each commit of the starter kit [commit history](https://github.com/nimiq/app-starter-kit/commits/master) represents one
@@ -35,12 +47,6 @@ When reverting or cherry-picking commits, keep in mind that there is a dependenc
 demo page for more details.
 
 ## Build and run
-
-To get started, setup everything and get all dependencies with yarn:
-
-```bash
-yarn install
-```
 
 Run a development server that watches the project files,
 compiles them on demand and hot-reloads the changes to keep your browser in sync:
