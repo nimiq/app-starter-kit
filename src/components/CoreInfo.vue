@@ -68,7 +68,8 @@ export default class CoreInfo extends Vue {
     private hash: string = '';
 
     private async calculateHash() {
-        const [Nimiq] = await Promise.all([loadNimiqCore(), loadNimiqCryptography()]);
+        // alternatively, if network isn't needed: const Nimiq = await loadNimiqCoreOnly();
+        const Nimiq = await loadNimiqWithCryptography();
         const inputBytes = Nimiq.BufferUtils.fromAscii(this.hashInput);
         this.hash = Nimiq.Hash.light(inputBytes).toHex();
     }
