@@ -5,10 +5,11 @@ import { version as CORE_VERSION } from '@nimiq/core-web/package.json';
 type Nimiq = typeof import('@nimiq/core-web');
 
 const coreBasePath = `https://cdn.nimiq.com/v${CORE_VERSION}/`;
+// const coreBasePath = 'https://cdn.nimiq.com/v1.5.1/';
 const coreVariant = 'web'; // change this to 'web-offline' to load the smaller core package without network capabilities
 
 let nimiqCorePromise: Promise<Nimiq> | null = null;
-let nimiqCryptographyPromise: Promise<void> | null = null;
+let nimiqCryptographyPromise: Promise<Nimiq> | null = null;
 
 /**
  * Load the Nimiq core api from the cdn server. When using the core and its classes make sure to always load them via
@@ -22,10 +23,11 @@ let nimiqCryptographyPromise: Promise<void> | null = null;
  * store the blockchain in the indexeddb. This is typically not what we want in the browser and is not required if we do
  * not sync the blockchain but only want to use blockchain primitives.
  */
-export async function loadNimiqCore(): Promise<Nimiq> {
+export async function loadNimiqCoreOnly(): Promise<Nimiq> {
     nimiqCorePromise = nimiqCorePromise || new Promise((resolve, reject) => {
         const $head = document.getElementsByTagName('head')[0];
         const $script = document.createElement('script');
+        const url = `${coreBasePath}${coreVariant}.js`;
         $script.type = 'text/javascript';
         $script.onload = () => {
             $script.parentNode!.removeChild($script);
@@ -35,8 +37,15 @@ export async function loadNimiqCore(): Promise<Nimiq> {
             $script.parentNode!.removeChild($script);
             reject();
         };
-        $script.src = `${coreBasePath}${coreVariant}.js`;
-        $head.appendChild($script);
+        fetch(url)
+            .then(() => {
+                $script.src = `${coreBasePath}${coreVariant}.js`;
+                $head.appendChild($script);
+            })
+            .catch(() => {
+                alert('Nimiq didn\'t load. Check your internet connection, disable adblocks and then try again.');
+                reject();
+            });
     }).then(
         () => {
             // @ts-ignore Nimiq is global but to discourage usage as global var we did not declare a global type.
@@ -55,13 +64,14 @@ export async function loadNimiqCore(): Promise<Nimiq> {
  * Load the WebAssembly and module for cryptographic functions. You will have to do this before calculating hashes,
  * deriving keys or addresses, signing transactions or messages, etc.
  */
-export async function loadNimiqCryptography(): Promise<void> {
+export async function loadNimiqWithCryptography(): Promise<Nimiq> {
     nimiqCryptographyPromise = nimiqCryptographyPromise || (async () => {
-        const Nimiq = await loadNimiqCore();
+        const Nimiq = await loadNimiqCoreOnly();
         // Note that we don't need to cache a promise for doImport() as the core already does that.
         await Nimiq.WasmHelper.doImport();
         // After the wasm is loaded we can initialize the genesis config.
         Nimiq.GenesisConfig.main();
+        return Nimiq;
     })();
     return nimiqCryptographyPromise;
 }
