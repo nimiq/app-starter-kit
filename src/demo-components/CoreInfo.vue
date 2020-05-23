@@ -15,14 +15,14 @@
                     API documentation</a>.
             </p>
             <p class="nq-text">
-                As an example, the following demo uses the Core api to verify whether an address is valid:
+                As an example, the following demo uses the Core cryptography to calculate a hash from an input text:
             </p>
             <p class="nq-text">
-                <input v-model="address" class="nq-input">
-                <button class="nq-button-pill light-blue" @click="validateAddress">Validate Address</button>
+                <input v-model="hashInput" class="nq-input">
+                <button class="nq-button-pill light-blue" @click="calculateHash">Calculate Hash</button>
             </p>
-            <p class="nq-text" v-if="addressValidity !== constructor.AddressValidity.UNKNOWN">
-                Address is {{addressValidity}}.
+            <p class="nq-text hash" v-if="hash">
+                Hash: {{hash}}
             </p>
             <p class="nq-text">
                 The way the Core is included in this template follows some assumptions or best practices:
@@ -50,42 +50,42 @@
                 <em>nimiq-core</em>
                 branch.
             </p>
+            <p class="nq-text">
+                Note that cryptographic operations like computing a hash, signing a transaction or deriving a public
+                key require an additional WebAssembly file to be loaded. The setup for this is in the
+                <em>nimiq-core-cryptography</em>
+                branch which depends on the
+                <em>nimiq-core</em>
+                branch.
+            </p>
         </div>
     </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import { loadNimiqCore } from '../lib/CoreLoader';
+import { loadNimiqCore, loadNimiqCryptography } from '../lib/CoreLoader';
 
 @Component
-class CoreInfo extends Vue {
-    private address: string = 'NQ07 0000 0000 0000 0000 0000 0000 0000 0000';
-    private addressValidity: CoreInfo.AddressValidity = CoreInfo.AddressValidity.UNKNOWN;
+export default class CoreInfo extends Vue {
+    private hashInput: string = 'Input text to hash.';
+    private hash: string = '';
 
-    private async validateAddress() {
-        const Nimiq = await loadNimiqCore();
-        try {
-            Nimiq.Address.fromAny(this.address);
-            this.addressValidity = CoreInfo.AddressValidity.VALID;
-        } catch (e) {
-            this.addressValidity = CoreInfo.AddressValidity.INVALID;
-        }
+    private async calculateHash() {
+        const [Nimiq] = await Promise.all([loadNimiqCore(), loadNimiqCryptography()]);
+        const inputBytes = Nimiq.BufferUtils.fromAscii(this.hashInput);
+        this.hash = Nimiq.Hash.light(inputBytes).toHex();
     }
 }
-namespace CoreInfo {
-    export enum AddressValidity {
-        UNKNOWN = 'unknown',
-        VALID = 'valid',
-        INVALID = 'invalid',
-    }
-}
-export default CoreInfo;
 </script>
 
 <style scoped>
 .nq-button-pill {
     margin-left: 2rem;
+}
+
+.hash {
+    word-break: break-all;
 }
 
 ul {
