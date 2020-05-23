@@ -25,6 +25,7 @@
         <!-- Merge slot: nimiq-network -->
         <NetworkInfo />
         <!-- Merge slot: nimiq-browser-warning -->
+        <BrowserWarningInfo />
         <!-- Merge slot: nimiq-utils -->
 
         <WhatNextInfo />
@@ -52,6 +53,7 @@ import CoreInfo from './demo-components/CoreInfo.vue';
 // Merge slot: nimiq-network
 import NetworkInfo from './demo-components/NetworkInfo.vue';
 // Merge slot: nimiq-browser-warning
+import BrowserWarningInfo from './demo-components/BrowserWarningInfo.vue';
 // Merge slot: nimiq-utils
 
 @Component({ components: {
@@ -68,6 +70,7 @@ import NetworkInfo from './demo-components/NetworkInfo.vue';
     // Merge slot: nimiq-network
     NetworkInfo,
     // Merge slot: nimiq-browser-warning
+    BrowserWarningInfo,
     // Merge slot: nimiq-utils
 } })
 export default class Demo extends Vue {}
