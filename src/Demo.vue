@@ -27,6 +27,7 @@
         <!-- Merge slot: nimiq-browser-warning -->
         <BrowserWarningInfo />
         <!-- Merge slot: nimiq-utils -->
+        <UtilsInfo />
 
         <WhatNextInfo />
     </div>
@@ -55,6 +56,7 @@ import NetworkInfo from './demo-components/NetworkInfo.vue';
 // Merge slot: nimiq-browser-warning
 import BrowserWarningInfo from './demo-components/BrowserWarningInfo.vue';
 // Merge slot: nimiq-utils
+import UtilsInfo from './demo-components/UtilsInfo.vue';
 
 @Component({ components: {
     ProjectInfo,
@@ -72,6 +74,7 @@ import BrowserWarningInfo from './demo-components/BrowserWarningInfo.vue';
     // Merge slot: nimiq-browser-warning
     BrowserWarningInfo,
     // Merge slot: nimiq-utils
+    UtilsInfo,
 } })
 export default class Demo extends Vue {}
 </script>

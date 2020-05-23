@@ -20,6 +20,7 @@
 
     "@nimiq/browser-warning": "^1.1.0",
 
+    "@nimiq/utils": "^0.4.6",
 
     "core-js": "^3.6.4",
     "vue": "^2.6.11",
