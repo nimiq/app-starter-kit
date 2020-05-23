@@ -23,6 +23,7 @@
         <!-- Merge slot: nimiq-core -->
         <CoreInfo />
         <!-- Merge slot: nimiq-network -->
+        <NetworkInfo />
         <!-- Merge slot: nimiq-browser-warning -->
         <!-- Merge slot: nimiq-utils -->
 
@@ -49,6 +50,7 @@ import HubInfo from './demo-components/HubInfo.vue';
 // Merge slot: nimiq-core
 import CoreInfo from './demo-components/CoreInfo.vue';
 // Merge slot: nimiq-network
+import NetworkInfo from './demo-components/NetworkInfo.vue';
 // Merge slot: nimiq-browser-warning
 // Merge slot: nimiq-utils
 
@@ -64,6 +66,7 @@ import CoreInfo from './demo-components/CoreInfo.vue';
     // Merge slot: nimiq-core
     CoreInfo,
     // Merge slot: nimiq-network
+    NetworkInfo,
     // Merge slot: nimiq-browser-warning
     // Merge slot: nimiq-utils
 } })

@@ -16,6 +16,7 @@
 
     "@nimiq/core-web": "^1.5.4",
 
+    "@nimiq/network-client": "^0.4.1",
 
 
 
