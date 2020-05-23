@@ -1,0 +1,9 @@
+<noscript id="browser-warning-container">
+    <div id="browser-warning">
+        <h1 id="browser-warning-headline">Please enable JavaScript</h1>
+        <div id="browser-warning-message">
+            We're sorry, but this app doesn't work properly without JavaScript enabled. Please enable it to continue.
+        </div>
+    </div>
+    <style>.hide-on-browser-warning{display:none!important}</style>
+</noscript>
