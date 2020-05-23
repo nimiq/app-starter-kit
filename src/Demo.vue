@@ -21,6 +21,7 @@
         <!-- Merge slot: nimiq-hub -->
         <HubInfo />
         <!-- Merge slot: nimiq-core -->
+        <CoreInfo />
         <!-- Merge slot: nimiq-network -->
         <!-- Merge slot: nimiq-browser-warning -->
         <!-- Merge slot: nimiq-utils -->
@@ -46,6 +47,7 @@ import VueComponentsInfo from './demo-components/VueComponentsInfo.vue';
 // Merge slot: nimiq-hub
 import HubInfo from './demo-components/HubInfo.vue';
 // Merge slot: nimiq-core
+import CoreInfo from './demo-components/CoreInfo.vue';
 // Merge slot: nimiq-network
 // Merge slot: nimiq-browser-warning
 // Merge slot: nimiq-utils
@@ -60,6 +62,7 @@ import HubInfo from './demo-components/HubInfo.vue';
     // Merge slot: nimiq-hub
     HubInfo,
     // Merge slot: nimiq-core
+    CoreInfo,
     // Merge slot: nimiq-network
     // Merge slot: nimiq-browser-warning
     // Merge slot: nimiq-utils
