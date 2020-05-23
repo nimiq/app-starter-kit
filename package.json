@@ -10,6 +10,7 @@
   "dependencies": {
     "@nimiq/style": "^0.7.6",
 
+    "@nimiq/vue-components": "https://github.com/nimiq/vue-components.git#build/master",
 
 
 
