@@ -58,6 +58,17 @@
                 <em>nimiq-vue-components</em>
                 branch.
             </p>
+            <p class="nq-text">
+                One typical component in Nimiq Apps are Identicons that are a visual representation for an addresses:
+            </p>
+            <Identicon address="NQ07 0000 0000 0000 0000 0000 0000 0000 0000"/>
+            <p class="nq-text">
+                Identicons require an additional asset to be loaded which is setup in the
+                <em>nimiq-vue-components-identicons</em>
+                branch. This feature depends on the
+                <em>nimiq-vue-components</em>
+                branch.
+            </p>
         </PageBody>
     </SmallPage>
 </template>
@@ -69,6 +80,7 @@ import {
     Carousel,
     CheckmarkIcon,
     HexagonIcon,
+    Identicon,
     InfoCircleIcon,
     LoginIcon,
     PageHeader,
@@ -83,6 +95,7 @@ import {
         Carousel,
         CheckmarkIcon,
         HexagonIcon,
+        Identicon,
         InfoCircleIcon,
         LoginIcon,
         PageHeader,
