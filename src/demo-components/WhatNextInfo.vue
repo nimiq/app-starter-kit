@@ -25,7 +25,7 @@
             </p>
             <p class="nq-text">
                 You built something awesome?
-                Let us now, such that we can add your app to
+                Let us know, such that we can add your app to
                 <a href="https://www.nimiq.com/apps/" target="_blank" rel="noopener">our website</a>.
             </p>
         </div>
